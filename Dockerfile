@@ -1,4 +1,4 @@
 FROM python:3.6.9
 WORKDIR /
-ADD calculator.py /
+ADD . /
 CMD [ "python", "./calculator.py" ]
