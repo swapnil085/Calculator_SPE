@@ -1,29 +1,24 @@
 node {
     def app
-
+    /*Taking the Jenkinsfile from the git repository*/
     stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
         checkout scm
     }
 
+    /*pytest for testing calculator*/       
+    stage('Run pytest') {
+        sh 'pip install pytest'
+        sh 'python -m pytest'
+    }
+
+
+    /* Building the image */
     stage('Build image') {
-        /* This builds the actual image */
         app = docker.build("rishi12398/python_calculator")
     }
-
-    stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
-        }
-    }
-
+    /*Pushing the new image to dockerhub with tag: latest*/
     stage('Push image') {
-        /* 
-			You would need to first register with DockerHub before you can push images to your account
-		*/
         docker.withRegistry('https://registry.hub.docker.com', '1b9136eb-616a-46c7-a024-e3caea811fd9') {
-            app.push("${env.BUILD_NUMBER}")
             app.push("latest")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
