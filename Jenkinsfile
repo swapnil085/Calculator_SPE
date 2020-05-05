@@ -11,7 +11,7 @@ node {
         sh 'python -m pytest'
     }
 
-
+    
     /* Building the image */
     stage('Build image') {
         app = docker.build("rishi12398/python_calculator")
@@ -22,5 +22,9 @@ node {
             app.push("latest")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
+    }
+    /*Deploy Image using Rundeck*/
+    stage('Deploy') {
+        build 'Rundeck_Deploy_Calculator'
     }
 }
