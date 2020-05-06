@@ -1,0 +1,10 @@
+2020-05-06 16:00:46 INFO-Inputs : 6 and 9
+2020-05-06 16:00:46 INFO-Summation : 15
+2020-05-06 16:00:46 INFO-Difference : -3
+2020-05-06 16:00:46 INFO-Multiplication : 54
+2020-05-06 16:00:46 INFO-Division : 0
+2020-05-06 16:18:01 INFO-Inputs : 6 and 9
+2020-05-06 16:18:01 INFO-Summation : 15
+2020-05-06 16:18:01 INFO-Difference : -3
+2020-05-06 16:18:01 INFO-Multiplication : 54
+2020-05-06 16:18:01 INFO-Division : 0
